@@ -16,7 +16,7 @@ window.addEventListener('keydown', playSound);
 function playSound(e) {
   const audio = document.querySelector(`audio[data-audio-key="${e.keyCode}"]`);
   const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
-  if (!audio) {
+  if (!audio) {z
     return;
   }
 

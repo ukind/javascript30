@@ -1,0 +1,52 @@
+/* referensi
+https://www.w3.org/TR/css-flexbox-1/#flex-common */
+/* https://www.w3schools.com/cssref/css_units.asp */
+/* https://www.w3schools.com/cssref/css3_pr_transition.asp */
+
+html{
+  font-size: 10px;
+  background: url("../img/b9r5sEL.jpg");
+  background-size: cover;
+  font-family: sans-serif;
+}
+
+.keyContainer {
+  /* make container as flex */
+  display: flex;
+  flex: 1;
+  min-height: 100vh;
+  align-items: center;
+  justify-content:center;
+}
+
+.key{
+  border: .4rem solid black;
+  border-radius: .4rem;
+  margin: 2rem;
+  font-size: 2.5rem;
+  padding: 1rem .5rem;
+  transition: all 0.7s ease;
+  width: 10rem;
+  text-align: center;
+  color: white;
+  background: rgba(0, 0, 0, 0.4);
+  text-shadow: 0 0 .5rem black
+}
+
+kbd{
+  display: block;
+  font-size: 4rem;
+}
+
+.playing {
+  transform: scale(1.1);
+  border-color: #ffc600;
+  box-shadow: 0 0 1rem #ffc600;
+}
+
+.sound {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+  color: #ffc600;
+}

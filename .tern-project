@@ -4,9 +4,7 @@
     "browser"
   ],
   "loadEagerly": [],
-  "dontLoad": [
-    "node_modules/**"
-  ],
+  "dontLoad": [],
   "plugins": {
     "doc_comment": true
   }

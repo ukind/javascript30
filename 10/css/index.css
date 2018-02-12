@@ -1,0 +1,71 @@
+@keyframes strike{
+  0%   { width : 0%; }
+  100% { width: 100%; }
+}
+
+:root{
+  background: rgba(0, 199, 92, 0.79);
+}
+
+.todoListContainer{
+  max-width: 400px;
+  margin: 50px auto;
+  background: white;
+  border-radius: 10px;
+          /* : s-x, s-y, shadow, shadow calor */
+  box-shadow: 10px 10px 20px rgba(218, 0, 150, 0.58);
+}
+
+.todoListItem{
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid rgba(255, 0, 222, 0.39);
+}
+
+.todoListItem:last-child{
+  border-bottom: 4px solid rgb(100, 0, 154);
+  border-radius: 0 0 10px 10px;
+}
+
+.todoListItem:first-child{
+    border-top: 4px solid rgb(100, 0, 154);
+    border-radius: 10px 10px 0 0;
+}
+
+/* mencoret task list: input:status*/
+input:checked + p {
+  background: rgba(156, 156, 156, 0.2);
+  padding: 20px;
+  /* text-decoration: line-through; */
+}
+
+input:checked + p::after {
+  content: ' ';
+  height: 2px;
+  background: black;
+  animation-name: strike;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  display: flex;
+  position: relative;
+  transform: translateY(-12px);
+}
+
+
+/* set margin of chechbox */
+input[type='checkbox'] {
+  margin: 20px;
+}
+
+p{
+  margin: 0px;
+  padding: 20px;
+  transition: background 0.5s;
+  flex: 1;
+  font-family: 'Segoe UI Light';
+  font-size: 20px;
+  font-weight: 200;
+  border-left: dashed 1px;
+}

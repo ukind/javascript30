@@ -1,7 +1,7 @@
-const allCheckBox = document.querySelectorAll('.todoListItem input[type="checkbox"]');
+const allCheckBox =
+document.querySelectorAll('.todoListItem input[type="checkbox"]');
 
 let lastChecked;
-
 
 function handleCheck(e) {
   let isInBetween = false;
@@ -14,7 +14,6 @@ function handleCheck(e) {
         isInBetween = !isInBetween;
         console.log('check in between');
       }
-      
       if (isInBetween) {
         checkBox.checked = true;
       }

@@ -1,0 +1,184 @@
+html{
+  /* The box-sizing property allows us to include the padding and border in an element's total width and height. */
+  box-sizing: border-box;
+}
+
+*, *::before, *::after{
+  box-sizing: inherit;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  display: flex;
+  background: rgba(116, 78, 147, 0.82);
+  /* will be scale up or down about 100viewpoint height */
+  min-height: 100vh;
+  background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+  background-size: cover;
+  align-items: center;
+  justify-content: center;
+}
+
+.videoPlayerContainer{
+  max-width: 750px;
+  border: 5px solid rgba(255, 0, 187, 0.57);
+  box-shadow: 0 0 20px rgb(110, 43, 142);
+  position: relative;
+  font-size: 0;
+  overflow: hidden;
+}
+
+/* all of this css only apply when fullscreen */
+
+.videoPlayerContainer:fullscreen{
+  max-width: none;
+  width: 100%;
+}
+
+.videoPlayerContainer:-webkit-full-screen {
+  max-width: none;
+  width: 100%;
+}
+
+.videoPlayer{
+  width: 100%;
+}
+
+.playerButton{
+  /* remove background button */
+  background: none;
+  /* remove button border */
+  border: 0;
+  /* the height of the line */
+  line-height: 3;
+  /* color the text in element */
+  color: rgb(255, 255, 255);
+  text-align: center;
+  cursor: pointer;
+  max-width: 60px;
+}
+
+.playerButton:focus{
+  border-color: #ffc600;
+}
+
+.playerButton:hover{
+  transform: scale(1.5);
+  transition: all 0.5s;
+  border-color: transparent;
+}
+
+.playerButton:not(:hover){
+  transform: scale(1.0);
+  transition: all 0.5s;
+  border-color: transparent;
+}
+
+.playerSlider {
+  width: 10px;
+  height: 30px;
+}
+
+.playerControl{
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  transform: translateY(100%) translateY(-5px);
+  transition: all .3s;
+  flex-wrap: wrap;
+  background: rgba(0,0,0,0.1);
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.videoPlayerContainer:hover .playerControl{
+  transform: translateY(0);
+}
+
+.videoPlayerContainer:hover .progress {
+  height: 15px;
+}
+
+.playerControl > * {
+  flex: 1;
+}
+
+.loading{
+  flex: 10;
+  position: relative;
+  display: flex;
+  flex-basis: 100%;
+  height: 5px;
+  transition: height 0.3s;
+  background: rgba(0,0,0,0.5);
+  cursor: ew-resize;
+}
+
+.loadingFilled{
+  width: 50%;
+  background:rgba(255, 184, 0, 1);
+  flex: 0;
+  /* initial value of width's element */
+  flex-basis: 50%;
+}
+
+input[type=range] {
+  background: transparent;
+  width: 100%;
+  margin: 0 5px;
+}
+
+input[type=range]:focus{
+  /* garis luar elements input */
+  outline: none;
+}
+
+/* styling slider track in webkit */
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0 0 1px rgba(13, 13, 13, 0);
+  background: rgba(255,255,255,0.8);
+  border-radius: 1.3px;
+  border: 0.2px solid rgba(1, 1, 1, 0);
+}
+/* styling trackbutton (thumb) */
+input[type=range]::-webkit-slider-thumb {
+  height: 15px;
+  width: 15px;
+  border-radius: 50px;
+  background: #ffc600;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -3.5px;
+  box-shadow:0 0 2px rgba(0,0,0,0.2);
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #bada55;
+}
+
+
+/* styling slider track in firefox */
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 2.4px;
+  cursor: pointer;
+  box-shadow: 0 0 10px 2px rgb(255, 255, 255);
+  background: #ffffff;
+  border-radius: 2.3px;
+  border: 0.2px solid rgba(1, 1, 1, 0);
+}
+
+/* styling slider track button (thumb) in firefox */
+input[type=range]::-moz-range-thumb {
+  height: 15px;
+  width: 15px;
+  border-radius: 100%;
+  background: #fff;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgb(110, 43, 142);
+}

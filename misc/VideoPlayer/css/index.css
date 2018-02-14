@@ -1,0 +1,67 @@
+html{
+  /* The box-sizing property allows us to include the padding and border in an element's total width and height. */
+  box-sizing: border-box;
+}
+
+*, *::before, *::after{
+  box-sizing: inherit;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  display: flex;
+  background: rgba(116, 78, 147, 0.82);
+  /* will be scale up or down about 100viewpoint height */
+  min-height: 100vh;
+  background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+  background-size: cover;
+  align-items: center;
+  justify-content: center;
+}
+
+.videoPlayerContainer{
+  max-width: 750px;
+  border: 5px solid rgba(255, 0, 187, 0.57);
+  box-shadow: 0 0 20px rgb(110, 43, 142);
+  position: relative;
+  font-size: 0;
+  overflow: hidden;
+}
+
+/* this css only apply when fullscreen */
+
+.videoPlayerContainer:fullscreen{
+  max-width: none;
+  width: 100%;
+}
+
+.videoPlayerContainer:-webkit-full-screen {
+  max-width: none;
+  width: 100%;
+}
+
+.videoPlayer{
+  width: 100%;
+}
+
+.playerButton{
+  /* remove background button */
+  background: none;
+  /* remove button border */
+  border: 0;
+  /* the height of the line */
+  line-height: 3;
+  /* color the text in element */
+  color: rgb(98, 2, 207);
+  text-align: center;
+  cursor: pointer;
+  width: 14vh;
+}
+
+.playerControl{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  transition: all 1s;
+}

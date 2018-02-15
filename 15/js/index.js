@@ -27,12 +27,29 @@ function populateMakanan(isi = [], daftarIsi) {
     return `
     <li>
       <input type="checkbox" data-index=${index} id="item${index}"
-      ${isi.done ? 'checked' : ''}>
+      ${element.done ? 'checked' : ''}>
       <label for="item${index}">${element.NamaMakanan}</label>
     </li>
     `;
   }).join('');// wihtout join, will print ','. so need to eliminate ',' by join('')
 };
 
+function delegate(event) {
+  // select only the target with label node
+  // console.log(event.target.matches('label'));
+  if (event.target.matches('input')) {
+    const dataSetIndex = event.originalTarget.dataset.index;
+    KatalogMakanan[dataSetIndex].done = !KatalogMakanan[dataSetIndex].done;
+    localStorage.setItem('KatalogMakanan', JSON.stringify(KatalogMakanan));
+    populateMakanan(KatalogMakanan, daftarMakanan);
+
+  }
+  // get data-index value
+}
+
 formAddMakan.addEventListener('submit', addMakanan);
 window.addEventListener('load', populateMakanan(KatalogMakanan, daftarMakanan));
+
+// CREATE EVENT DELEGATION (PARRENT(CLASS) FOR THE CHILD(NODE)😄!)
+
+daftarMakanan.addEventListener('click', delegate);

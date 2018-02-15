@@ -1,9 +1,7 @@
 const daftarMakanan = document.querySelector('.makanan');
 const formAddMakan = document.querySelector('.add-makanan');
 
-formAddMakan.addEventListener('submit', addMakanan);
-
-const KatalogMakanan = [];
+const KatalogMakanan = JSON.parse(localStorage.getItem('KatalogMakanan')) || [];
 
 function addMakanan(e) {
   e.preventDefault();//stoping the reload when submit
@@ -16,6 +14,8 @@ function addMakanan(e) {
   KatalogMakanan.push(isi);
   populateMakanan(KatalogMakanan, daftarMakanan);
   console.table(KatalogMakanan);
+  // add to LocalStorage('name item', array)
+  localStorage.setItem('KatalogMakanan', JSON.stringify(KatalogMakanan));
   // reset the form
   this.reset();
 };
@@ -33,3 +33,6 @@ function populateMakanan(isi = [], daftarIsi) {
     `;
   }).join('');// wihtout join, will print ','. so need to eliminate ',' by join('')
 };
+
+formAddMakan.addEventListener('submit', addMakanan);
+window.addEventListener('load', populateMakanan(KatalogMakanan, daftarMakanan));

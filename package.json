@@ -1,0 +1,9 @@
+{
+  "name": "javascript30",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/ukind/javascript30.git",
+  "author": "ukind <ukind@users.noreply.github.com>",
+  "license": "MIT",
+  "dependencies": {}
+}

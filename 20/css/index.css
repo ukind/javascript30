@@ -1,0 +1,39 @@
+:root{
+  font-size: 10px
+}
+
+body{
+  background:#ffc600;
+  font-family: 'helvetica neue';
+  font-weight: 200;
+  font-size: 20px;
+}
+
+.kata{
+  max-width: 500px;
+  margin: 50px auto;
+  background: white;
+  border-radius: 5px;
+  -webkit-box-shadow: 10px 10px 0 rgb(0, 0, 0, 0.1);
+          box-shadow: 10px 10px 0 rgb(0, 0, 0, 0.1);
+  padding: 1rem 2rem 1rem 5rem;
+  background: linear-gradient(116.06466289748596deg, rgba(134, 240, 175,1) 16.986822711950165%,rgba(134, 240, 175,1) 23.04831643986551%,rgba(99, 0, 237,1) 84.42094043500835%,rgba(99, 0, 237,1) 89.72474744693426%);
+  background-size: 100% 3rem;
+  position: relative;
+  line-height: 3rem;
+}
+
+p{
+  margin: 0 0 3rem;
+}
+
+.kata::before{
+  content: '';
+  position: absolute;
+  width: 4px;
+  top: 0;
+  left: 30px;
+  bottom: 0;
+  border: 1px solid;
+  border-color: transparent #efe4e4;
+}

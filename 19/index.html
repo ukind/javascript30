@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Get User Media</title>
+    <link rel="stylesheet" href="./css/index.css">
+  </head>
+  <body>
+    <div class="takePhotoContainer">
+      <div class="photoControl">
+        <button type="button" name="button" onclick="takePhoto()">Take Photo</button>
+
+        <div class="rgb">
+          <label for="redMin">Red Min:</label>
+          <input type="range" name="redMin" min="0" max="255" value="0">
+          <label for="redMax">Red Max:</label>
+          <input type="range" name="redMax" value="0" min="0" max="255">
+
+          <br>
+
+          <label for="greenMin">Green Min:</label>
+          <input type="range" name="greenMin" min="0" max="255" value="0">
+          <label for="greenMax">Green Max:</label>
+          <input type="range" name="greenMax" value="0" min="0" max="255">
+
+          <br>
+
+          <label for="blueMin">Blue Min:</label>
+          <input type="range" name="blueMin" min="0" max="255" value="0">
+          <label for="blueMax">Blue Max:</label>
+          <input type="range" name="blueMax" value="0" min="0" max="255">
+
+        </div>
+
+        <canvas class="photo"></canvas>
+        <video class="player"></video>
+        <div class="photoStrip"></div>
+
+        <audio src="./sound/cameraShoot.mp3" class="snap" hidden></audio>
+      </div>
+      <script type="text/javascript" src="./js/index.js">
+
+      </script>
+    </div>
+  </body>
+</html>

@@ -1,7 +1,9 @@
 {
   "ecmaVersion": "7",
   "libs": [
-    "browser"
+    "browser",
+    "underscore",
+    "chai"
   ],
   "loadEagerly": [],
   "dontLoad": [],

@@ -7,7 +7,7 @@ highlight.classList.add('highlight');
 document.body.append(highlight);
 
 function showsUp() {
-  // getBoundingClientRect : return DOMRect.
+  // getBoundingClientRect : return DOMRect
   const linkCordinat = this.getBoundingClientRect();
   console.log(linkCordinat);
   const posisi = {

@@ -2,9 +2,9 @@
 var removeTransition = (e) => e.target.classList.remove('playing');
 
 //oldSchool
-const keys = Array.from(document.querySelectorAll('.key'));
-keys.forEach(function(element, index, array) {
-  element.addEventListener('transitionend', removeTransition);
+const kumpulanTombol = Array.from(document.querySelectorAll('.tombol'));
+kumpulanTombol.forEach(function(tiapTombol, index, array) {
+  tiapTombol.addEventListener('transitionend', removeTransition);
 });
 
 // ES6 Version
@@ -14,9 +14,9 @@ keys.forEach(function(element, index, array) {
 window.addEventListener('keydown', playSound);
 
 function playSound(e) {
-  const audio = document.querySelector(`audio[data-audio-key="${e.keyCode}"]`);
-  const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
-  if (!audio) {z
+  const audio = document.querySelector(`audio[data-audio-tombol="${e.keyCode}"]`);
+  const key = document.querySelector(`div[data-nomorTombol="${e.keyCode}"]`);
+  if (!audio) {
     return;
   }
 

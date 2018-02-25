@@ -8,10 +8,16 @@ html{
 body{
   margin: 0;
   font-size: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex: 1;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   min-height: 100vh;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .clockContainer{
@@ -22,7 +28,12 @@ body{
   margin:50px auto;
   position: relative;
   padding:2rem;
-  box-shadow:
+  -webkit-box-shadow:
+    0 0 0 4px rgba(0,0,0,0.1),
+    inset 0 0 0 3px #EFEFEF,
+    inset 0 0 10px black,
+    0 0 10px rgba(0,0,0,0.2);
+          box-shadow:
     0 0 0 4px rgba(0,0,0,0.1),
     inset 0 0 0 3px #EFEFEF,
     inset 0 0 10px black,
@@ -33,7 +44,8 @@ body{
   position: relative;
   width: 100%;
   height: 100%;
-  transform: translateY(-3px); /* account for the height of the clock hands */
+  -webkit-transform: translateY(-3px);
+          transform: translateY(-3px); /* account for the height of the clock hands */
 }
 
 .jarum{
@@ -43,8 +55,14 @@ body{
   position: absolute;
   top: 50%;
   /* sumbu x (pusat berputar), sumbu y */
-  transform-origin: right center;
-  transform: rotate(90deg);
+  -webkit-transform-origin: right center;
+          transform-origin: right center;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
   /* transition: all 0.05s;
   transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1); */
+}
+
+.jam{
+  color: rgb(217, 13, 148)
 }

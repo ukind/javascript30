@@ -4,7 +4,7 @@ allInput.forEach(input => input.addEventListener('mousemove', doUpdate));
 
 function doUpdate() {
   // dataset.nameOfDatasetInHTML
-  const suffix = this.dataset.format || '';
-  document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
+  const satuan = this.dataset.format || '';
+  document.documentElement.style.setProperty(`--${this.name}`, this.value + satuan);
 
 }

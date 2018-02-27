@@ -27,11 +27,11 @@ var nameFirstAndLast = penemu.map((theName,i,a) => `${theName.first} ` + `${theN
 console.table(nameFirstAndLast);
 
 //sort: sorting an array from the older to youngest: (dataX, dataY) (result: (dataX - dataY))
-var sortBirthday = penemu.sort((born,passed) => born.year - passed.year);
-console.table(sortBirthday);
+// var sortBirthday = penemu.sort((born,passed) => born.year - passed.year);
+// console.table(sortBirthday);
 //the alternatif
-// var anotherSort = penemu.sort((a,b) => a.year > a.passed ? 1 : -1);
-// console.table(anotherSort);
+var anotherSort = penemu.sort((a,b) => a.year > a.passed ? 1 : -1);
+console.table(anotherSort);
 
 //reduce: calculate inner array
 var allInventorLive = penemu.reduce((total,inventor) => {

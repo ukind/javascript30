@@ -7,8 +7,8 @@ window.addEventListener('keyup', event => {
   // console.table(pressedKey);
   // slice : to add or remove alement in original array
   // slice : (from_array, to_array )
-  // if inputter from array, negative. it start counting (for starting)
-  // from right to left, end if positive, from left to right
+  // if inputer from array, negative. it start counting (for starting)
+  // from right to left, and if positive, from left to right
   //              (-5-1) = -6 > char d at index 0. n at -1
   console.table(theSecretKey);
   pressedKey.slice(-theSecretKey.length - 1,
@@ -17,6 +17,11 @@ window.addEventListener('keyup', event => {
   // means: at position -6 remove (to right) 21 items (position -6 included in 21 item)
   if (pressedKey.join('').includes(theSecretKey)) {
     console.log('ding - ding');
+    const sumArray = pressedKey.length;
+    for (var i = 0; i < sumArray; i++) {
+      pressedKey.pop();
+    }
     // here execute function
   }
+
 });

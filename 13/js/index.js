@@ -5,17 +5,17 @@ function doSlide(e) {
     // window.scrollY: get pixel sing ws kelewat
     // window.innerHeight: get current browser window's height.
     // sliderImage.height : get the image heigh and divide it by two, so the image will shows when 1/2 of image scrolled
-    const pixelYangTerlewat = window.scrollY;
-    const browserWindowHight = window.innerHeight;
-    const scannedPage = (pixelYangTerlewat + browserWindowHight);
+    const scrollPosition = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const scannedPage = (scrollPosition + windowHeight);
 
     // detect the bottom of image
     // offsetTop: return the range (calculated as height) of 'this' element with parrent node
-    const imageDetector = (sliderImage.offsetTop + sliderImage.height);
+    const rangeImageOfTop = (sliderImage.offsetTop + sliderImage.height);
 
-    const isHalfShown = scannedPage > sliderImage.offsetTop;
-    const isNotScrolledPast = pixelYangTerlewat < imageDetector;
-    if (isHalfShown && isNotScrolledPast) {
+    const isFilledHalfPage = scannedPage > sliderImage.offsetTop;
+    const isNotScrolledPast = scrollPosition < rangeImageOfTop;
+    if (isFilledHalfPage && isNotScrolledPast) {
       sliderImage.classList.add('active');
     } else {
       sliderImage.classList.remove('active');

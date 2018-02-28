@@ -1,9 +1,7 @@
 const daftarMakanan = document.querySelector('.makanan');
 const formAddMakan = document.querySelector('.add-makanan');
 
-formAddMakan.addEventListener('submit', addMakanan);
-
-const KatalogMakanan = [];
+const KatalogMakanan = JSON.parse(localStorage.getItem('KatalogMakanan')) || [];
 
 function addMakanan(e) {
   e.preventDefault();//stoping the reload when submit
@@ -16,6 +14,8 @@ function addMakanan(e) {
   KatalogMakanan.push(isi);
   populateMakanan(KatalogMakanan, daftarMakanan);
   console.table(KatalogMakanan);
+  // add to LocalStorage('name item', array)
+  localStorage.setItem('KatalogMakanan', JSON.stringify(KatalogMakanan));
   // reset the form
   this.reset();
 };
@@ -23,11 +23,33 @@ function addMakanan(e) {
 function populateMakanan(isi = [], daftarIsi) {
   // create new array from processed array
   daftarIsi.innerHTML = isi.map((element, index) => {
+    // label for, disamakan dengan id, supaya checkboxnya langsung otomatis terisi ketika label di klik
     return `
     <li>
-      <label for="">${element.NamaMakanan}</label>
+      <input type="checkbox" data-index=${index} id="item${index}"
+      ${element.done ? 'checked' : ''}>
+      <label for="item${index}">${element.NamaMakanan}</label>
     </li>
     `;
-    // wihtout join, will print ','. so need to eliminate ',' by join('')
-  }).join('');
+  }).join('');// wihtout join, will print ','. so need to eliminate ',' by join('')
 };
+
+function delegate(event) {
+  // select only the target with label node
+  // console.log(event.target.matches('label'));
+  if (event.target.matches('input')) {
+    const dataSetIndex = event.originalTarget.dataset.index;
+    KatalogMakanan[dataSetIndex].done = !KatalogMakanan[dataSetIndex].done;
+    localStorage.setItem('KatalogMakanan', JSON.stringify(KatalogMakanan));
+    populateMakanan(KatalogMakanan, daftarMakanan);
+
+  }
+  // get data-index value
+}
+
+formAddMakan.addEventListener('submit', addMakanan);
+window.addEventListener('load', populateMakanan(KatalogMakanan, daftarMakanan));
+
+// CREATE EVENT DELEGATION (PARRENT(CLASS) FOR THE CHILD(NODE)😄!)
+
+daftarMakanan.addEventListener('click', delegate);

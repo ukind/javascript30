@@ -19,7 +19,7 @@ window.addEventListener('keyup', event => {
   // do calculate: -6, ex:27-5 = 21 => slice(-6, 21)
   // means: at position -6 remove (to right) 21 items (position -6 included in 21 item)
   const test = pressedKey.join('');
-  console.log(test);
+  console.log(test); 
 
   function findingPassCode(thePassKey) {
     return kumpulanPassKey.find(elemen => {

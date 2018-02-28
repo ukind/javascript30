@@ -12,8 +12,9 @@ function handleCheck(e) {
       //will log all chechbox
       //if allCheckBox === this(the selected checbox) or
       if (checkBox === this || checkBox === firstChecked) {
+        console.log(checkBox === firstChecked);
         isInBetween = !isInBetween;
-        console.log('check in between');
+        // console.log('check in between');
       }
       if (isInBetween) {
         checkBox.checked = true;
@@ -21,6 +22,7 @@ function handleCheck(e) {
     });
   }
   firstChecked = this;
+  console.log(this);
 }
 
 allCheckBox.forEach(thisCheckbox => {

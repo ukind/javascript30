@@ -1,16 +1,17 @@
 const allCheckBox =
 document.querySelectorAll('.todoListItem input[type="checkbox"]');
 
-let lastChecked;
+let firstChecked;
 
 function handleCheck(e) {
+
   let isInBetween = false;
   if (e.shiftKey && this.checked) {
     // do loop for every checkedbox
     allCheckBox.forEach(checkBox => {
       //will log all chechbox
       //if allCheckBox === this(the selected checbox) or
-      if (checkBox === this || checkBox === lastChecked) {
+      if (checkBox === this || checkBox === firstChecked) {
         isInBetween = !isInBetween;
         console.log('check in between');
       }
@@ -19,7 +20,7 @@ function handleCheck(e) {
       }
     });
   }
-  lastChecked = this;
+  firstChecked = this;
 }
 
 allCheckBox.forEach(thisCheckbox => {

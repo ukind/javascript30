@@ -15,7 +15,7 @@ function togglePlay() {
   // toggle the video - play or pause
   // this is method from HTML5 itself
   videoPlayer[method]();
-  console.log(this);
+  // console.log(this);
 }
 
 function updateButton() {
@@ -28,16 +28,17 @@ function updateButton() {
 function loadingProgress() {
   const percent = (videoPlayer.currentTime / videoPlayer.duration) * 100;
   // console.log(percent);
+  // resize the size of flex element
   loadingFilled.style.flexBasis = `${percent}%`;
-  console.log(percent);
+  // console.log(percent);
 }
 
-function rangeUpdate() {
+function updateVolumeAndSpeed() {
   // this.sliderOne = for volume
   // this.sliderTwo = for playbackRate
   // by using html element name
   videoPlayer[this.name] = this.value;
-  console.log(videoPlayer[this.name]);
+  console.log(this.value);
 }
 
 function skipping() {
@@ -49,6 +50,7 @@ function skipping() {
 function setFrame(e) {
   // const a = e.offsetX;
   // console.log(a);
+  // duration return seconds of video duration
   const time = (e.offsetX / loading.offsetWidth) * videoPlayer.duration;
   videoPlayer.currentTime = time;
 }
@@ -63,9 +65,9 @@ allSkipButton.forEach(eachSkipButton => {
   eachSkipButton.addEventListener('click', skipping);
 });
 
-range.forEach(thisSlider => thisSlider.addEventListener('change', rangeUpdate));
+range.forEach(thisSlider => thisSlider.addEventListener('change', updateVolumeAndSpeed));
 range.forEach(thisSlider => thisSlider.addEventListener('mousemove',
-rangeUpdate));
+updateVolumeAndSpeed));
 
 
 let mousedown = false;
